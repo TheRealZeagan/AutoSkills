@@ -22,8 +22,9 @@ namespace AutoSkills
         {
             if (Keyboard.IsKeyDown(Keyboard.VK_RBUTTON))
             {
-                await Task.Delay(10);
+                await Task.Delay(100);
                 Keyboard.KeyPress(Settings.attackSkillKey);
+                return;
             }
         }
     }
