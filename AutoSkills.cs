@@ -18,14 +18,14 @@ namespace AutoSkills
 {
     public class AutoSkills : BaseSettingsPlugin<AutoSkillsSettings>
     {
-        public override async void Render()
+        public override void Render()
         {
             if (Keyboard.IsKeyDown(Keyboard.VK_RBUTTON))
             {
-                await Task.Delay(100);
                 Keyboard.KeyPress(Settings.attackSkillKey);
-                return;
             }
+
+            new WaitTime(10);
         }
     }
 }
