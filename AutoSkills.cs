@@ -38,7 +38,7 @@ namespace AutoSkills
                     yield return Attack();
                 }
 
-                yield return new WaitTime(10);
+                //yield return new WaitTime(10);
             }
         }
 
