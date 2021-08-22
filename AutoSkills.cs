@@ -31,12 +31,15 @@ namespace AutoSkills
 
         private IEnumerator MainCoroutine()
         {
-            if (Input.IsKeyDown(Settings.supportSkillKey))
+            while (true)
             {
-                yield return Attack();
-            }
+                if (Input.IsKeyDown(Settings.supportSkillKey))
+                {
+                    yield return Attack();
+                }
 
-            yield return new WaitTime(10);
+                yield return new WaitTime(10);
+            }
         }
 
         private IEnumerator Attack()
