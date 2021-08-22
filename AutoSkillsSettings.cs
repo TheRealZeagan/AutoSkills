@@ -6,7 +6,6 @@ namespace AutoSkills
 {
     public class AutoSkillsSettings : ISettings
     {
-        public HotkeyNode supportSkillKey { get; set; } = Keys.RButton;
         public HotkeyNode attackSkillKey { get; set; } = Keys.T;
         public ToggleNode Enable { get; set; } = new ToggleNode(false);
     }

@@ -18,33 +18,13 @@ namespace AutoSkills
 {
     public class AutoSkills : BaseSettingsPlugin<AutoSkillsSettings>
     {
-        private Coroutine _mainCoroutine;
-
-        public override bool Initialise()
+        public override async void Render()
         {
-            Input.RegisterKey(Settings.supportSkillKey);
-            _mainCoroutine = new Coroutine(
-                MainCoroutine(), this, "EDC");
-            Core.ParallelRunner.Run(_mainCoroutine);
-            return true;
-        }
-
-        private IEnumerator MainCoroutine()
-        {
-            while (true)
+            if (Keyboard.IsKeyDown(Keyboard.VK_RBUTTON))
             {
-                if (Input.IsKeyDown(Settings.supportSkillKey))
-                {
-                    yield return Attack();
-                }
-
-                //yield return new WaitTime(10);
+                await Task.Delay(10);
+                Keyboard.KeyPress(Settings.attackSkillKey);
             }
-        }
-
-        private IEnumerator Attack()
-        {
-            yield return Input.KeyPress(Settings.attackSkillKey.Value);
         }
     }
 }
